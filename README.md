@@ -61,3 +61,16 @@ Global typing ripples strictly ignore keycodes (`EventType::KeyPress(_)`). Zero 
 - **Direct Clickable Belly Capsules**: Click any floating capsule inside the belly to spit that exact snippet to clipboard.
 - **Auto-Stealth Meeting Melt**: Detects Zoom / OBS / Teams / Loom / ScreenStudio and melts smoothly into a flat bottom puddle.
 - **Late-Night Bioluminescent Jellyfish + Empathy Band-Aid Mode + 3-Line Error Prompt Compressor + Bass Ripple Resonance**.
+## FAQ
+
+### Does SlimePulse work with Claude Code, Cursor, Codex, and Gemini CLI?
+Yes. SlimePulse automatically watches local session logs for Claude Code, OpenAI Codex CLI, and OpenCode with zero configuration, and includes a one-click MCP config writer for Cursor and Gemini CLI.
+
+### How does SlimePulse protect against dangerous commands like `rm -rf`?
+Its built-in Dangerous Command Guard inspects incoming agent tool hooks for destructive patterns (such as `rm -rf`, `git push --force`, or `DROP TABLE`) and flashes an instant crimson alert before execution.
+
+### Will my desktop pet show up when I share my screen on Zoom or OBS?
+No. SlimePulse monitors active meeting and recording processes (Zoom, OBS, Microsoft Teams, Loom, Screen Studio) and automatically melts flat into stealth mode while muting sound effects until the call ends.
+
+### How much RAM and disk space does SlimePulse use?
+Because it is built with Tauri 2, Rust, and a pure-code WebGL2 shader (zero image assets or Electron runtime), the native installer stays under 10 MB with minimal CPU and memory overhead.
