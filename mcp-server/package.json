@@ -1,0 +1,13 @@
+{
+  "name": "slimepulse-mcp-server",
+  "version": "6.1.0",
+  "description": "Zero-dependency MCP server allowing Cursor, Claude Code, Windsurf, Cline, and Gemini CLI to animate SlimePulse with multi-session mitosis.",
+  "type": "module",
+  "bin": {
+    "slimepulse-mcp": "./index.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

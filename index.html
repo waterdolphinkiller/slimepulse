@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SlimePulse</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="pet-body">
+    <div id="pet-stage">
+      <div id="speech-bubble" class="hidden"></div>
+      <canvas id="gl-canvas" width="560" height="560" style="position:absolute;inset:0;width:280px;height:280px;pointer-events:none;"></canvas>
+      <canvas id="pet-canvas" width="280" height="280" style="position:relative;z-index:2;"></canvas>
+      <div id="load-badge" class="hidden">CPU 0%</div>
+      <div id="context-menu" class="hidden">
+        <button data-action="swallow-belly">🫧 Swallow Clipboard (Click belly to spit)</button>
+        <button data-action="eyedropper">🎨 Optical Color Eyedropper (#HEX)</button>
+        <button data-action="compress-prompt">🗜️ Error Log → 3-Line Prompt</button>
+        <button data-action="split-merge">🫧 Tear-Apart Split &amp; Re-Merge</button>
+        <button data-action="fling-wall">🧱 Fling to Wall-Stick</button>
+        <button data-action="toggle-bass">🎵 Toggle Bass Ripple</button>
+        <button data-action="night-glow">🌙 Toggle Night Jellyfish</button>
+        <button data-action="export-card">📸 Export Weekly Card PNG</button>
+        <button data-action="open-settings">⚙️ Settings &amp; Slime DNA...</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

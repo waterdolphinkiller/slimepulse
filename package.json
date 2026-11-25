@@ -1,0 +1,29 @@
+{
+  "name": "slimepulse",
+  "version": "6.1.0",
+  "private": true,
+  "description": "Pure-code 60 FPS optical translucent jelly slime AI companion (<10MB) with multi-session mitosis, click-to-focus terminal, and Slime DNA sharing.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "test": "node scripts/test-slimepulse.mjs",
+    "test:v2": "node scripts/test-v2-functional.mjs",
+    "test:v3": "node scripts/test-v3-suite.mjs",
+    "doctor": "node scripts/slimepulse-doctor.mjs",
+    "test:v4": "node scripts/test-v4-suite.mjs",
+    "test:v5": "node scripts/test-v5-webgl.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.2.0",
+    "@tauri-apps/plugin-clipboard-manager": "^2.2.0",
+    "@tauri-apps/plugin-shell": "^2.2.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.2.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

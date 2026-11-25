@@ -1,0 +1,100 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sS --max-time 0.8 -X POST http://127.0.0.1:47890/claude-hook -H \"Content-Type: application/json\" --data-binary @- >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
