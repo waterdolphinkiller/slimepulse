@@ -1,15 +1,16 @@
-#!/usr/bin/env node
-/**
- * SlimePulse v5.1.0 WebGL2 GLSL Raymarched SDF + Living Soul Engine Test Suite
- */
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
+import ts from "typescript";
 
+/**
+ * SlimePulse v5.1.0 WebGL2 GLSL Raymarched SDF + Living Soul Engine Test Suite
+ */
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const results = [];
+
 function runTest(name, fn) {
   try {
     fn();
@@ -22,17 +23,15 @@ function runTest(name, fn) {
 }
 
 function loadSoulClass() {
-  let code = fs.readFileSync(path.join(ROOT, "src/core/livingSoul.ts"), "utf8");
-  code = code
-    .replace(/export\s+type\s+\w+\s*=\s*[\s\S]*?;/g, "")
-    .replace(/export\s+interface\s+\w+\s*\{[\s\S]*?\}/g, "")
-    .replace(/\bexport\s+class\b/g, "class")
-    .replace(/\b(private|public)\s+/g, "")
-    .replace(/:\s*(?:SoulMood|SoulSnapshot|string|number|boolean|void|Date)(\s*\|\s*(?:SoulMood|string|null))*/g, "");
-  code=code.replace(/^\s*export\s+/gm,""); const sandbox = { Math, Date, Number, console };
+  const src = fs.readFileSync(path.join(ROOT, "src/core/livingSoul.ts"), "utf8");
+  const js = ts.transpileModule(src, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  const mod = { exports: {} };
+  const sandbox = { module: mod, exports: mod.exports, Math, Date, Number, console };
   vm.createContext(sandbox);
-  vm.runInContext(`${code}\nthis.__exports = { SlimeLivingSoul };`, sandbox);
-  return sandbox.__exports.SlimeLivingSoul;
+  vm.runInContext(js, sandbox);
+  return mod.exports.SlimeLivingSoul;
 }
 
 console.log("Running SlimePulse v5.1.0 WebGL2 + Living Soul Audit Suite...\n");
@@ -108,7 +107,6 @@ runTest("v5.1 preview.html WebGL2 + Living Soul Controls Syntax & DOM Audit", ()
   assert.ok(html.includes("btn-sneeze") && html.includes("btn-bubble") && html.includes("btn-dizzy") && html.includes("btn-chomp") && html.includes("btn-nod"));
 });
 
-
 runTest("v5.2 Usability & i18n: zh/en/ja localization, MCP JSON snippet, S/M/L scale, lockPosition, ecoMode & onboarding", () => {
   const i18nSrc = fs.readFileSync(path.join(ROOT, "src/core/i18n.ts"), "utf8");
   const mainSrc = fs.readFileSync(path.join(ROOT, "src/main.ts"), "utf8");
@@ -123,7 +121,6 @@ runTest("v5.2 Usability & i18n: zh/en/ja localization, MCP JSON snippet, S/M/L s
   assert.ok(setTs.includes("detect_installed_agents") && setTs.includes("MCP_SNIPPET_JSON"));
 });
 
-
 runTest("v6.0 Ultimate 10/10 Audit: Crystal Dispersion, WebGL2 skipBody, Desktop Soul Sync, Tray Mute, Window Pos & MCP Auto-Writer", () => {
   const wg = fs.readFileSync(path.join(ROOT, "src/core/webglSlimeEngine.ts"), "utf8");
   const ren = fs.readFileSync(path.join(ROOT, "src/core/renderer.ts"), "utf8");
@@ -137,7 +134,6 @@ runTest("v6.0 Ultimate 10/10 Audit: Crystal Dispersion, WebGL2 skipBody, Desktop
   assert.ok(libRs.includes("toggle_mute") && libRs.includes("restore_window_position") && libRs.includes("install_mcp_for_agent"));
   assert.ok(chRs.includes("pub fn install_mcp_for_agent"));
 });
-
 
 runTest("v6.1 Pink State & Translucent Slime Cursor Coating after SWALLOW_CURSOR spit", () => {
   const lsSrc = fs.readFileSync(path.join(ROOT, "src/core/livingSoul.ts"), "utf8");
