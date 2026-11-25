@@ -5,9 +5,10 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const results = [];
 function runTest(name, fn) {
   try {
@@ -28,7 +29,7 @@ function loadSoulClass() {
     .replace(/\bexport\s+class\b/g, "class")
     .replace(/\b(private|public)\s+/g, "")
     .replace(/:\s*(?:SoulMood|SoulSnapshot|string|number|boolean|void|Date)(\s*\|\s*(?:SoulMood|string|null))*/g, "");
-  const sandbox = { Math, Date, Number, console };
+  code=code.replace(/^\s*export\s+/gm,""); const sandbox = { Math, Date, Number, console };
   vm.createContext(sandbox);
   vm.runInContext(`${code}\nthis.__exports = { SlimeLivingSoul };`, sandbox);
   return sandbox.__exports.SlimeLivingSoul;
