@@ -1,6 +1,14 @@
-# 🟢 SlimePulse v6.0
+# SlimePulse — 3D Desktop Pet & Companion for Claude Code, Cursor & Codex
 
-**100% Pure-Code 60 FPS Optical Translucent Jelly AI Companion (`<10MB`)** for **Claude Code, OpenAI Codex CLI, OpenCode, Gemini CLI, Cursor & MCP**.
+**SlimePulse** is an open-source, lightweight (<10 MB) desktop pet for **Claude Code, OpenAI Codex CLI, OpenCode, Gemini CLI, and Cursor**. Unlike static pixel-art pets, SlimePulse renders a real-time 3D refractive jelly in pure WebGL2 (zero image assets) on **macOS, Windows, and Linux**—while guarding against dangerous shell commands (`rm -rf`), melting away automatically during Zoom/OBS screen shares, and turning your mouse into a translucent slime cursor.
+
+<p align="center">
+  <img width="768" height="432" alt="SlimePulse 3D desktop pet for Claude Code chomping cursor into a pink slime cursor" src="https://github.com/user-attachments/assets/05715e3f-7c74-4c66-9eea-b15fc6b98e4a" />
+</p>
+
+### 25-Second Full Demo
+
+https://github.com/user-attachments/assets/79704576-b0db-4031-a5f9-a357239aef1c
 
 > Zero sprite sheets. Zero heavy Electron RAM bloat. Zero keylogging. Just optical translucent emerald jelly physics that lives on your desktop, watches your AI agents work, tracks real token spend automatically, intercepts dangerous shell commands, and lets you export your Weekly Slime Coding Card.
 
